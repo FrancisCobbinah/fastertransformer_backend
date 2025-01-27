@@ -187,20 +187,6 @@ docker commit ft_backend_builder ${TRITON_DOCKER_IMAGE}
 In the docker file, `NCCL_LAUNCH_MODE=GROUP` is the default because it is less likely to hang. However, `NCCL_LAUNCH_MODE=PARALLEL` can bring better performance for 
 communication. Hence, users may be able to try to use `NCCL_LAUNCH_MODE=PARALLEL` to accelerate.
 
-In current environment:
-```shell
-export NCCL_LAUNCH_MODE=PARALLEL
-```
-
-When building the Docker container changing the Dockerfile:
-```dockerfile
-ENV NCCL_LAUNCH_MODE=PARALLEL
-```
-
-Or passing environment variable on container start:
-```shell
-docker run -e NCCL_LAUNCH_MODE=PARALLEL ...
-```
 
 ### GPUs Topology
 
